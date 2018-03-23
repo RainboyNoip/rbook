@@ -1,8 +1,16 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
+
 
 module.exports = {
   entry: './src/main.js',
+  externals:{
+    vue:"Vue",
+    "highlight.js":"hljs",
+    katex:"katex"
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -59,11 +67,14 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
+      sourceMap: false,
       compress: {
         warnings: false
       }
     }),
+    new CopyWebpackPlugin([
+      { from:'./src/assets/loading.css' }
+    ]),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })

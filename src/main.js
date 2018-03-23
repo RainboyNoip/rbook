@@ -4,7 +4,7 @@ import router from './router'
 import store from './vuex/index.js'
 
 import "rmarked/css/github-markdown.css"
-import "katex/dist/katex.min.css"
+//import "katex/dist/katex.min.css"
 import "highlight.js/styles/tomorrow-night-blue.css"
 
 
