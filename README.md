@@ -24,7 +24,7 @@ npm run dev
 `video`目录下放`mp4`格式视频作为彩蛋.
 
 `config.js`修改方式如下:
- - secret:md5后的密码 ???? 好像有问题
+ - secret:md5后的密码/使用gensecret.js生成,如果为`""`空,就不会判断
  - saveDays: 密码有效的天数
  - videoList: 视频列表
    - src:路径

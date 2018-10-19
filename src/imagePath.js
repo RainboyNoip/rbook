@@ -11,8 +11,14 @@ function imagePath(str,path){
   return str.replace(image_reg,function($1,$2){
     let rep_str = ""
 
+    if($2.substring(0,3)=='/./')
+      $2 = $2.slice(1)
+
     if($2.substring(0,7) == "http://" || $2.substring(0,8) == "https://")
       rep_str =$2
+    else if($2.charAt(0) === '/'){
+      rep_str =$2
+    }
     else if($2.substring(0,2)=='./')
       rep_str = cur_path + $2.slice(2)
     else

@@ -4,6 +4,10 @@
     <div>
       <div class="markdown-body" v-html="_content" ref="markdown_body">
       </div>
+      <br>
+      <br>
+      <br>
+      <comment> </comment>
     </div>
     <toolbar></toolbar>
   </div>
@@ -15,6 +19,8 @@ import toolbar from './toolbar.vue'
 import loading from './loding.vue'
 import imagePath from '../imagePath.js'
 import slideMenu from '../slideMenu.js'
+import comment from '../components/comment.vue'
+
 
 import {bus } from './bus.js'
 export default {
@@ -26,7 +32,8 @@ export default {
   components:{
     icon,
     toolbar,
-    loading
+    loading,
+    comment
   },
   mounted(){
     bus.$on("goTop",this.goTop)

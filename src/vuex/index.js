@@ -41,6 +41,8 @@ export default new Vuex.Store({
   },
   mutations:{
     getArticle(state,_path){
+      console.log("重新渲染 comment",_path)
+      bus.$emit("commentRender",_path)
       console.log("vuex 模块get路径 :",_path)
       bus.$emit("loading",true)
       api(_path+".md").then(function(data){

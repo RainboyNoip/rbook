@@ -59,7 +59,12 @@ export default {
         localStorage.setItem("secret",sss)
     },
     __verify(){
-      if(localStorage.getItem("time") && localStorage.getItem("secret")){
+      if(config.secret.length == 0 || config.secret.length == null) {
+          this.realvideoPasue()
+          this.$store.state.isLogin = true;
+          console.log("yes")
+      }
+      else if(localStorage.getItem("time") && localStorage.getItem("secret")){
         let sss = localStorage.getItem("secret")
         let time = localStorage.getItem("time")
         if( sss === str_de(config.secret) && (Date.now()- time <( config.saveDays * 24 *60 *60*1000))){
@@ -70,6 +75,7 @@ export default {
       }
     },
     verify(){
+    
       if((str_de(this.secret)) === config.secret){
         //成功
         this.__login();
